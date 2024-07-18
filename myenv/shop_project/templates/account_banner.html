@@ -1,11 +1,6 @@
 {% load static %}
 
-{% if messages %}
-{% for message in messages %}
-<h1 style="color:rgb(238, 8, 8)">{{ message }}</h1>
-{% endfor %}
 
-{% endif %}
 <div class="account-page">
     <div class="container">
         <div class="row">
@@ -13,6 +8,16 @@
                 <img src="{% static 'images/image1.png '%}" width="100%">
             </div>
             <div class="col-2">
+                {% if messages %}
+                <div class="message-container">
+               
+              {% for message in messages %}
+                <h4 class="{{message.tags}}">{{ message }}</h4>
+             {% endfor %}
+
+              
+            </div>
+            {% endif %}
                 <div class="form-container">
                     <div class="form-btn">
                         <span onclick="login()">Login</span>
